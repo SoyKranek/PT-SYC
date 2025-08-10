@@ -133,24 +133,9 @@ Frontend (proyecto sorteofrontend)
 - Rate limiting/login intentos, logging estructurado (Serilog) y health checks.
 - Pruebas unitarias/integración y pipeline de CI/CD.
 
-15) Qué hacer si el entrevistador pide cambios (guía rápida)
-- Agregar un campo al usuario:
-  Backend: añadir propiedad en Modelo/DTOs, mapear en UsuarioService, exponer en Controller; crear migración y update DB.
-  Frontend: actualizar interfaces TS, inputs del formulario y vistas (detalle/lista), ajustar api.ts si cambia el contrato.
-- Enviar correo al registrarse:
-  En UsuariosController.Inscripcion, tras guardar, llamar a EmailService.EnviarAsync(correo, "Inscripción recibida", "...").
-- Cambiar puertos/URLs:
-  Correr API con --urls y ajustar .env.local del frontend; reiniciar npm start.
-- HTTPS en desarrollo:
-  dotnet dev-certs https --trust y usar https en .env/local y --urls.
-
-16) Problemas típicos y solución
+15) Problemas típicos y solución
 - 404 en /: normal; por eso agregué redirect a /swagger.
 - 401 en endpoints admin: token ausente o expirado; volver a loguearse.
 - Puerto ocupado o exe bloqueado: matar proceso (taskkill /PID <pid> /F), limpiar bin/obj y reintentar.
 - SMTP no envía: usar App Password (Gmail), revisar puerto 587/465 y logs.
 
-17) Conclusión (cómo lo explico)
-Esta solución cumple todos los puntos: inscripción con archivo, almacenamiento en BD relacional, administrador con login JWT, listado/ detalle/ cambio de estado, y correo al cambiar estado. Elegí una arquitectura clara (Model-DTO-Service-Controller) porque me permite separar responsabilidades y escalar cambios fácilmente. En frontend, TS + React me dan tipado y componentes reutilizables. Todo está documentado para que sea fácil de mantener y explicar.
-
-Gracias por revisar. Estoy listo para ajustar lo que el entrevistador necesite y explicar cada parte en detalle.
