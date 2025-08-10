@@ -1,0 +1,6 @@
+@SorteoAPI_HostAddress = http://localhost:5202
+
+GET {{SorteoAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

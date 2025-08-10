@@ -1,0 +1,18 @@
+# .NET
+**/bin/
+**/obj/
+**/*.user
+**/*.suo
+**/*.swp
+
+# Node / React
+sorteofrontend/node_modules/
+sorteofrontend/.env.local
+sorteofrontend/build/
+
+# Uploads locales (opcional, no versionar)
+SorteoAPI/wwwroot/uploads/
+
+# Sistema
+.DS_Store
+Thumbs.db
